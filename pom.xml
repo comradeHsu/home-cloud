@@ -15,6 +15,7 @@
         <module>user</module>
         <module>hourse</module>
         <module>api</module>
+        <module>monitor</module>
     </modules>
 
     <parent>
