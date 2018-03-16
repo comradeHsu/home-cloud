@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="api" />
+        <module name="config" />
+        <module name="discovery" />
+        <module name="hourse" />
+        <module name="user" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="api" target="1.8" />
+      <module name="cloud" target="1.6" />
+      <module name="config" target="1.8" />
+      <module name="discovery" target="1.6" />
+      <module name="hourse" target="1.6" />
+      <module name="user" target="1.6" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
