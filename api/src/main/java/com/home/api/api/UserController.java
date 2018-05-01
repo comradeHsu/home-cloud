@@ -15,8 +15,8 @@ public class UserController {
     @Autowired
     SchedualUser schedualUser;
 
-    @RequestMapping(value = "/api/login",method = RequestMethod.GET)
-    public NoPagingResponse login(){
-        return schedualUser.login("123","123");
+    @RequestMapping(value = "/api/login",method = RequestMethod.POST)
+    public NoPagingResponse login(@RequestBody User user){
+        return schedualUser.login(user.getUsername(),user.getPassword());
     }
 }
