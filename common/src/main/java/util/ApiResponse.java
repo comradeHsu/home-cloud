@@ -1,4 +1,4 @@
-package com.home.user.util;
+package util;
 
 public class ApiResponse {
 
