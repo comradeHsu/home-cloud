@@ -1,6 +1,7 @@
 package com.home.user.service;
 
-import com.home.user.model.User;
+
+import model.User;
 
 public interface UserService {
 

@@ -1,13 +1,12 @@
 package com.home.user.controller;
 
-import com.home.user.model.User;
 import com.home.user.service.UserService;
-import com.home.user.util.NoPagingResponse;
+import model.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import util.NoPagingResponse;
 
 @RestController
 public class UserController {

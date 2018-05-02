@@ -1,4 +1,4 @@
-package com.home.user.util;
+package util;
 
 public class NoPagingResponse {
 
@@ -37,4 +37,9 @@ public class NoPagingResponse {
         this.msg = msg;
         this.data = data;
     }
+
+    public NoPagingResponse(){
+
+    }
 }
+

@@ -1,13 +1,14 @@
 package com.home.api.api;
 
-import com.home.api.schedual.NoPagingResponse;
 import com.home.api.schedual.SchedualUser;
-import com.home.api.schedual.User;
+
+import model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import util.NoPagingResponse;
 
 @RestController
 public class UserController {

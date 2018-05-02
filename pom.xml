@@ -16,6 +16,7 @@
         <module>hourse</module>
         <module>api</module>
         <module>monitor</module>
+        <module>common</module>
     </modules>
 
     <parent>

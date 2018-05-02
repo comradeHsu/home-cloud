@@ -18,7 +18,6 @@
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 
-
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
@@ -36,7 +35,11 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-eureka</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>com.home</groupId>
+			<artifactId>common</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 	</dependencies>
 
 	<dependencyManagement>

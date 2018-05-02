@@ -1,9 +1,14 @@
-package com.home.api.schedual;
+package model;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
 
+@Document(collection = "user")
 public class User {
 
+    @Id
     private String id;
 
     private String username;
@@ -53,4 +58,15 @@ public class User {
     public void setType(Integer type) {
         this.type = type;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id='" + id + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", type=" + type +
+                '}';
+    }
 }
+
