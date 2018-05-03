@@ -22,4 +22,17 @@ public class UserController {
         }
         return new NoPagingResponse(200,"success",userData);
     }
+
+    @RequestMapping(value = "/api/account",method = RequestMethod.POST)
+    public NoPagingResponse addUser(User user){
+        if(user.getType() == null || (user.getType() != 1 && user.getType() != 0)){
+            return new NoPagingResponse(202,"error","未指定用户类型");
+        }
+        User userOld = service.getUser(user.getUsername());
+        if(userOld != null){
+            return new NoPagingResponse(201,"fail","账号已存在");
+        }
+        User userNew = service.insert(user);
+        return new NoPagingResponse(200,"success",userNew);
+    }
 }

@@ -20,4 +20,9 @@ public class UserController {
     public NoPagingResponse login(@RequestBody User user){
         return schedualUser.login(user.getUsername(),user.getPassword());
     }
+
+    @RequestMapping(value = "/api/account",method = RequestMethod.POST)
+    public NoPagingResponse register(@RequestBody User user){
+        return schedualUser.register(user);
+    }
 }
