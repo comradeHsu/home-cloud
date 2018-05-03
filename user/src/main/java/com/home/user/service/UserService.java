@@ -10,4 +10,6 @@ public interface UserService {
     public User getUser(String username);
 
     public User insert(User user);
+
+    public void deleteById(String userId);
 }

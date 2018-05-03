@@ -3,6 +3,7 @@ package com.home.user.controller;
 import com.home.user.service.UserService;
 import model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -34,5 +35,11 @@ public class UserController {
         }
         User userNew = service.insert(user);
         return new NoPagingResponse(200,"success",userNew);
+    }
+
+    @RequestMapping(value = "/api/deleteUser/{userId}",method = RequestMethod.DELETE)
+    public NoPagingResponse deleteUser(@PathVariable String userId){
+        service.deleteById(userId);
+        return new NoPagingResponse(200,"success",null);
     }
 }
