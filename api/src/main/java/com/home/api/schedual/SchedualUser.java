@@ -4,6 +4,7 @@ import model.User;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
+import util.ApiResponse;
 import util.NoPagingResponse;
 
 @FeignClient(value = "user")
@@ -18,4 +19,7 @@ public interface SchedualUser {
 
     @RequestMapping(value = "/api/deleteUser/{userId}",method = RequestMethod.DELETE)
     NoPagingResponse deleteUser(@PathVariable("userId") String userId);
+
+    @RequestMapping(value = "/api/account",method = RequestMethod.GET)
+    ApiResponse getAllUser(@RequestParam("pageSize") Integer pageSize, @RequestParam("pageNumber") Integer pageNumber);
 }

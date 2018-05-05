@@ -5,7 +5,9 @@ import com.home.api.schedual.SchedualUser;
 import model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import util.ApiResponse;
 import util.NoPagingResponse;
+import util.PageRequest;
 
 @RestController
 public class UserController {
@@ -26,5 +28,13 @@ public class UserController {
     @RequestMapping(value = "/api/deleteUser/{userId}",method = RequestMethod.DELETE)
     public NoPagingResponse deleteUser(@PathVariable String userId){
         return schedualUser.deleteUser(userId);
+    }
+
+    @RequestMapping(value = "/api/account",method = RequestMethod.GET)
+    public ApiResponse getAllUser(@RequestBody PageRequest page){
+        if(page == null){
+            page = new PageRequest();
+        }
+        return schedualUser.getAllUser(page.getPageSize(),page.getPageNumber());
     }
 }
