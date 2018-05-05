@@ -7,7 +7,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import util.ApiResponse;
 import util.NoPagingResponse;
+import util.PageRequest;
+
+import java.util.List;
 
 @RestController
 public class UserController {
@@ -41,5 +45,14 @@ public class UserController {
     public NoPagingResponse deleteUser(@PathVariable String userId){
         service.deleteById(userId);
         return new NoPagingResponse(200,"success",null);
+    }
+
+    @RequestMapping("/api/account")
+    public ApiResponse getAllUser(PageRequest page){
+        List<User> users = service.getAllUsers();
+        int count = users.size();
+        users = users.subList(page.getPageNumber()*page.getPageSize(),(page.getPageNumber()+1)*page.getPageSize() > count ?
+                count : (page.getPageNumber()+1)*page.getPageSize());
+        return new ApiResponse(200,"success",users, count,page.getPageNumber(),page.getPageSize());
     }
 }

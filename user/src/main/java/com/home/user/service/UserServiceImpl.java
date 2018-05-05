@@ -4,7 +4,11 @@ package com.home.user.service;
 import com.home.user.repository.UserRepository;
 import model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import util.PageRequest;
+
+import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService{
@@ -30,5 +34,11 @@ public class UserServiceImpl implements UserService{
     @Override
     public void deleteById(String userId) {
         userRepository.delete(userId);
+    }
+
+    @Override
+    public List<User> getAllUsers() {
+        List<User> users = userRepository.findAll(new Sort(Sort.Direction.DESC,"createDate"));
+        return users;
     }
 }
