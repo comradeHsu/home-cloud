@@ -1,8 +1,13 @@
 package model;
 
+import org.springframework.data.annotation.Id;
+
 import java.util.Date;
 
 public abstract class BaseHourse {
+
+    @Id
+    private String id;
 
     private String isDeleted;
 
@@ -182,5 +187,13 @@ public abstract class BaseHourse {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

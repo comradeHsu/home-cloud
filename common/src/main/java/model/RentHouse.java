@@ -10,9 +10,6 @@ import java.util.Collection;
 @Document(collection = "hourse")
 public class RentHouse extends BaseHourse {
 
-    @Id
-    private String id;
-
     private String rentPrice;
 
     private String rentMethod;
@@ -35,15 +32,6 @@ public class RentHouse extends BaseHourse {
     public void setRentPrice(String rentPrice) {
         this.rentPrice = rentPrice;
     }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
 
     public String getRentMethod() {
         return rentMethod;

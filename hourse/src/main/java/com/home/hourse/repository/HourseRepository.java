@@ -11,4 +11,6 @@ public interface HourseRepository extends MongoRepository<BaseHourse,String> {
     <T extends BaseHourse> List<T> findByCreateByOrIsPublic(Sort sort, String userId, String state);
 
     <T extends BaseHourse> List<T> findByType(Sort sort,String status);
+
+    <T extends BaseHourse> T findById(String id);
 }
