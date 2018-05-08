@@ -32,4 +32,9 @@ public class HourseServiceImpl implements HourseService {
         hourse.setType(type);
         hourseRepository.save(hourse);
     }
+
+    @Override
+    public <T extends BaseHourse> void create(T hourse){
+        hourseRepository.insert(hourse);
+    }
 }

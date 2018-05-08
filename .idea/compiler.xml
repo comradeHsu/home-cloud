@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="api" />
+        <module name="common" />
         <module name="config" />
         <module name="discovery" />
         <module name="hourse" />
@@ -17,6 +18,7 @@
     <bytecodeTargetLevel>
       <module name="api" target="1.8" />
       <module name="cloud" target="1.6" />
+      <module name="common" target="1.8" />
       <module name="config" target="1.8" />
       <module name="discovery" target="1.6" />
       <module name="hourse" target="1.6" />
