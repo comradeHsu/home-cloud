@@ -8,7 +8,7 @@ public interface HourseService {
 
     void deleteById(String id,String userId);
 
-    <T extends BaseHourse> void update(T hourse,String type);
+    <T extends BaseHourse> void update(T hourse);
 
     <T extends BaseHourse> void create(T hourse);
 }

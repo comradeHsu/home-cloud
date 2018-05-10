@@ -27,9 +27,8 @@ public class HourseServiceImpl implements HourseService {
     }
 
     @Override
-    public <T extends BaseHourse> void update(T hourse,String type){
+    public <T extends BaseHourse> void update(T hourse){
         hourse.setUpdateDate(new Date());
-        hourse.setType(type);
         hourseRepository.save(hourse);
     }
 

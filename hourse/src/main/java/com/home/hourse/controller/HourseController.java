@@ -28,7 +28,17 @@ public class HourseController {
 
     @RequestMapping(value = "/api/update",method = RequestMethod.PUT)
     public NoPagingResponse update(@RequestBody BaseHourse hourse,String type){
-        hourseService.update(hourse,type);
+        hourse.setType(type);
+        hourseService.update(hourse);
+        return new NoPagingResponse(200,"success",hourse);
+    }
+
+    @RequestMapping(value = "/api/delete/{hourseId}",method = RequestMethod.DELETE)
+    public NoPagingResponse delete(@PathVariable String hourseId,String userId){
+        BaseHourse hourse = hourseService.findById(hourseId);
+        hourse.setIsDeleted("1");
+        hourse.setUpdateBy(userId);
+        hourseService.update(hourse);
         return new NoPagingResponse(200,"success",hourse);
     }
 }
