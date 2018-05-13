@@ -3,9 +3,11 @@ package com.home.hourse.controller;
 import com.home.hourse.service.HourseService;
 import model.BaseHourse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 import util.ApiResponse;
 import util.NoPagingResponse;
+import util.PageRequest;
 
 import java.util.Date;
 
@@ -44,7 +46,9 @@ public class HourseController {
     }
 
     @RequestMapping("/api/front/hourses/{type}")
-    public ApiResponse getAllHourse(@PathVariable String type,Integer pageSize,Integer pageNumber){
-        return new ApiResponse(200,"success",null);
+    public ApiResponse getAllHourse(@PathVariable String type, PageRequest pageRequest){
+        Page<BaseHourse> data = hourseService.findByType(type,pageRequest);
+        return new ApiResponse(200,"success",data.getContent(),
+                (int)data.getTotalElements(),pageRequest.getPageNumber(),pageRequest.getPageSize());
     }
 }
