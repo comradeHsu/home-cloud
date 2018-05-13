@@ -4,6 +4,7 @@ import com.home.hourse.service.HourseService;
 import model.BaseHourse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import util.ApiResponse;
 import util.NoPagingResponse;
 
 import java.util.Date;
@@ -40,5 +41,10 @@ public class HourseController {
         hourse.setUpdateBy(userId);
         hourseService.update(hourse);
         return new NoPagingResponse(200,"success",hourse);
+    }
+
+    @RequestMapping("/api/front/hourses/{type}")
+    public ApiResponse getAllHourse(@PathVariable String type,Integer pageSize,Integer pageNumber){
+        return new ApiResponse(200,"success",null);
     }
 }
