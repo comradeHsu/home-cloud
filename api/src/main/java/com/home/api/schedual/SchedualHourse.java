@@ -21,6 +21,6 @@ public interface SchedualHourse {
     @RequestMapping(value = "/api/delete/{hourseId}",method = RequestMethod.DELETE)
     NoPagingResponse delete(@PathVariable("hourseId") String hourseId,@RequestParam("userId")String userId);
 
-    @RequestMapping("/api/front/hourses/{type}")
-    ApiResponse getAllHourse(@PathVariable("type") String type, PageRequest pageRequest);
+    @RequestMapping(value = "/api/front/hourses/{type}",method = RequestMethod.GET)
+    ApiResponse getAllHourse(@PathVariable("type") String type, @RequestParam("pageSize") Integer pageSize, @RequestParam("pageNumber") Integer pageNumbert);
 }
