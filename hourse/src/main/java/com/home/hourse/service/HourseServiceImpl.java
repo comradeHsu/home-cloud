@@ -47,4 +47,14 @@ public class HourseServiceImpl implements HourseService {
         Pageable page = new org.springframework.data.domain.PageRequest(pageRequest.getPageNumber(),pageRequest.getPageSize(),sort);
         return hourseRepository.findByType(type,page);
     }
+
+    @Override
+    public <T extends BaseHourse> Page<T> findByUser(String userId, String title, PageRequest pageRequest) {
+        Sort sort = new Sort(Sort.Direction.DESC,"createDate");
+        Pageable page = new org.springframework.data.domain.PageRequest(pageRequest.getPageNumber(),pageRequest.getPageSize(),sort);
+        if(title == null){
+            return hourseRepository.findByCreateByOrIsPublic(userId,"0",page);
+        }
+        return hourseRepository.findByCreateByAndTitleLikeOrIsPublic(userId,title,"0",page);
+    }
 }

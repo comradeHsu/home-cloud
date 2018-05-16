@@ -15,4 +15,6 @@ public interface HourseService {
     <T extends BaseHourse> void create(T hourse);
 
     <T extends BaseHourse> Page<T> findByType(String type, PageRequest pageRequest);
+
+    <T extends BaseHourse> Page<T> findByUser(String userId, String title,PageRequest pageRequest);
 }

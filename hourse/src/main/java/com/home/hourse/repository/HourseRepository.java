@@ -11,7 +11,9 @@ import java.util.List;
 
 public interface HourseRepository extends MongoRepository<BaseHourse,String> {
 
-    <T extends BaseHourse> List<T> findByCreateByOrIsPublic(Sort sort, String userId, String state);
+    <T extends BaseHourse> Page<T> findByCreateByOrIsPublic(String userId, String state, Pageable page);
+
+    <T extends BaseHourse> Page<T> findByCreateByAndTitleLikeOrIsPublic(String userId, String title,String state, Pageable page);
 
     <T extends BaseHourse> List<T> findByType(Sort sort,String status);
 
