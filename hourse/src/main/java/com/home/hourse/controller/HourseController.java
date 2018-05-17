@@ -10,6 +10,7 @@ import util.NoPagingResponse;
 import util.PageRequest;
 
 import java.util.Date;
+import java.util.List;
 
 @RestController
 public class HourseController {
@@ -50,5 +51,16 @@ public class HourseController {
         Page<BaseHourse> data = hourseService.findByType(type,pageRequest);
         return new ApiResponse(200,"success",data.getContent(),
                 (int)data.getTotalElements(),pageRequest.getPageNumber(),pageRequest.getPageSize());
+    }
+
+    @RequestMapping(value = "/api/hourses/{userId}",method = RequestMethod.POST)
+    public ApiResponse getHourses(@PathVariable String userId,PageRequest page){
+        if(page == null){
+            page = new PageRequest();
+        }
+        String title = page.getName();
+        Page<BaseHourse> hourses = hourseService.findByUser(userId,title,page);
+        return new ApiResponse(200,"success",hourses.getContent(),
+                (int)hourses.getTotalElements(),page.getPageNumber(),page.getPageSize());
     }
 }
