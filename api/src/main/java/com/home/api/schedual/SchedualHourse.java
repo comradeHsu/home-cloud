@@ -13,7 +13,7 @@ import util.PageRequest;
 public interface SchedualHourse {
 
     @RequestMapping(value = "/api/hourse/{hourseId}",method = RequestMethod.GET)
-    NoPagingResponse login(@PathVariable("hourseId") String hourseId);
+    NoPagingResponse getHourse(@PathVariable("hourseId") String hourseId);
 
     @RequestMapping(value = "/api/update",method = RequestMethod.PUT)
     NoPagingResponse update(@RequestBody BaseHourse hourse, @RequestParam("type")String type);
